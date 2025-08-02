@@ -17,7 +17,8 @@ def get_candles():
         # Validate interval
         valid_intervals = ['1m', '2m', '5m', '15m', '30m', '60m', '90m', '1h', '1d', '1wk', '1mo']
         if interval not in valid_intervals:
-            return jsonify({'error': f'Invalid interval: {interval}. Valid intervals are: {', '.join(valid_intervals)}'}), 400
+            valids = ', '.join(valid_intervals)
+            return jsonify({'error': f'Invalid interval: {interval}. Valid intervals are: {valids}'}), 400
         # Automatically limit period for intraday intervals
         intraday_intervals = ['1m', '2m', '5m', '15m', '30m', '60m', '90m']
         if interval in intraday_intervals:
