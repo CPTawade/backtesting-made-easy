@@ -99,7 +99,7 @@ async function loadChart() {
             alert('Bigger Length EMA must be greater than Smaller Length EMA.');
             return;
         }
-        const url = `http://127.0.0.1:8000/api/candles?symbol=${encodeURIComponent(symbol)}&interval=${encodeURIComponent(interval)}&ema_short=${smallerEMA}&ema_long=${biggerEMA}`;
+        const url = `/api/candles?symbol=${encodeURIComponent(symbol)}&interval=${encodeURIComponent(interval)}&ema_short=${smallerEMA}&ema_long=${biggerEMA}`;
         const resp = await fetch(url);
         if (!resp.ok) {
             alert('Server error: ' + resp.status);
