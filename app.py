@@ -8,7 +8,8 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/api/candles')
+@app.route('/api/candles', methods=['GET'])
+@app.route('/api/candles/', methods=['GET'])
 def get_candles():
     symbol = request.args.get('symbol', default='AAPL', type=str)
     interval = request.args.get('interval', default='1d', type=str)  # e.g. '1d', '1h'
