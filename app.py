@@ -100,6 +100,10 @@ def search_symbol():
         print(f'[ERROR] Symbol search failed: {e}')
         return jsonify({'quotes': [], 'error': 'Failed to fetch suggestions'}), 500
 
+@app.errorhandler(404)
+def not_found(e):
+    return jsonify({'error': 'Not found', 'hint': 'This is a Flask 404, so Flask is running.'}), 404
+
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
 
