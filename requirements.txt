@@ -3,4 +3,3 @@ yfinance==0.2.37
 requests==2.31.0
 gunicorn==21.2.0
 pandas==1.5.3
-python_version<"3.13"
